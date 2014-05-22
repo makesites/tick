@@ -1,0 +1,5 @@
+/* Tick.js
+ * Source: https://github.com/makesites/tick
+ * Copyright © Makesites.org
+ */
+(function(e){var t=function(e){e=e||{};if(e.rate)this.options.rate=e.rate;this.rate();this.loop()};t.prototype={options:{rate:1e3/60},queue:[],rate:function(t){t=t||this.options.rate;e.requestAnimFrame=e.requestAnimFrame||function(n){return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(n){e.setTimeout(function(){n(+(new Date))},t)}}()},loop:function(t){this.process(t);e.requestAnimFrame(this.loop.bind(this))},process:function(e){for(var t in this.queue){var n=this.queue[t];if(!(e%n.interval)||n.run+n.interval>e)continue;n.fn();this.queue[t].run=e}},add:function(e,t){if(typeof e!=="function")return;t=t||this.options.rate;var n={fn:e,interval:t,run:0};this.queue.push(n)},remove:function(e){var t=false;for(var n in this.queue){var r=this.queue[n];if(String(r.fn)===String(e)){t=true;delete this.queue[n]}}return t}};e.Tick=t})(this.window)
