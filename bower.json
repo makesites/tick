@@ -1,0 +1,24 @@
+{
+	"name": "tick",
+	"version": "0.0.1",
+	"description": "Clock methods using requestAnimationFrame",
+	"authors": [
+		"Makis Tracend <makis@makesit.es>"
+	],
+	"license": "MIT",
+	"keywords": [
+		"makesites",
+		"tick",
+		"requestAnimationFrame"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/makesites/tick.git"
+	},
+	"ignore": [
+		"node_modules"
+	],
+	"dependencies": {
+	}
+}
+
