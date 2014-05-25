@@ -22,7 +22,7 @@ var Tick = function( options ){
 Tick.prototype = {
 
 	options: {
-		rate: 1000 / 60, // standard 60fps
+		rate: 1000 / 60 // standard 60fps
 	},
 
 	queue: [],
@@ -38,7 +38,7 @@ Tick.prototype = {
 			window.msRequestAnimationFrame ||
 			function ( callback ) {
 				window.setTimeout( function () {
-					callback(+new Date())
+					callback(+new Date());
 				}, rate );
 			};
 		})();
@@ -62,7 +62,8 @@ Tick.prototype = {
 		for( var i in this.queue ){
 			var item = this.queue[i];
 			// restrict execution if not time yet
-			if( !(timestamp % item.interval) || item.run + item.interval > timestamp) continue;
+			var step = (timestamp % item.interval);
+			if( step === 0 || item.run + item.interval > timestamp) continue;
 			// run
 			item.fn(); // context?
 			// record last run
@@ -81,7 +82,7 @@ Tick.prototype = {
 			fn: fn,
 			interval: interval,
 			run: 0
-		}
+		};
 		this.queue.push( item );
 	},
 
@@ -97,7 +98,7 @@ Tick.prototype = {
 		return exists;
 	}
 
-}
+};
 
 // save to the global namespace
 window.Tick = Tick;
