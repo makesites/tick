@@ -61,13 +61,16 @@ Tick.prototype = {
 		// loop through queue
 		for( var i in this.queue ){
 			var item = this.queue[i];
+			// prerequisite
+			if( typeof item.fn !== "function") continue;
 			// restrict execution if not time yet
 			var step = (timestamp % item.interval);
 			if( step === 0 || item.run + item.interval > timestamp) continue;
 			// run
 			item.fn(); // context?
 			// record last run
-			this.queue[i].run = timestamp;
+			// condition in case the item was released in the meantime...
+			if( this.queue[i] ) this.queue[i].run = timestamp;
 		}
 	},
 
