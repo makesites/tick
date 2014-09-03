@@ -1,7 +1,8 @@
 /* Tick.js
  * Source: https://github.com/makesites/tick
  * Copyright © Makesites.org
- *
+ */
+/*
  * Initiated by Makis Tracend (@tracend)
  * Distributed through [Makesites.org](http://makesites.org)
  * Released under the [MIT license](http://makesites.org/licenses/MIT)
