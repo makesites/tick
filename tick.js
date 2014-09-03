@@ -7,17 +7,17 @@
  * Released under the [MIT license](http://makesites.org/licenses/MIT)
  */
 
-(function( window ){
+window.Tick = window.Tick || (function( window ){
 
-var Tick = function( options ){
-	// merge options
-	options = options || {};
-	if(options.rate) this.options.rate = options.rate;
-	// setup animation rate
-	this.rate();
-	// start loop
-	this.loop();
-};
+	var Tick = function( options ){
+		// merge options
+		options = options || {};
+		if(options.rate) this.options.rate = options.rate;
+		// setup animation rate
+		this.rate();
+		// start loop
+		this.loop();
+	};
 
 Tick.prototype = {
 
@@ -106,7 +106,7 @@ Tick.prototype = {
 
 };
 
-// save to the global namespace
-window.Tick = Tick;
+// return to save in the global namespace
+return Tick;
 
 })( this.window );
