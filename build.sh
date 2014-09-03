@@ -1,5 +1,5 @@
 #!/bin/bash
 
-uglifyjs tick.js -m --comments '/Source|Copyright/' > tick-min.js
+uglifyjs tick.js -m --comments '/Tick.js|Copyright/' > tick-min.js
 
 exit;
